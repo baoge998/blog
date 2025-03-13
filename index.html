@@ -491,7 +491,7 @@
         const importFile = document.getElementById('import-file');
 
         // 存储文章之前状态的副本
-        let 1memoryArticles = JSON.parse(localStorage.getItem('articles')) || JSON.parse(JSON.stringify(articles));
+        let memoryArticles = JSON.parse(localStorage.getItem('articles')) || JSON.parse(JSON.stringify(articles));
         let defaultArticles = [{
             "id": "1",
             "title": "示例文章 1",
@@ -511,7 +511,7 @@
             defaultArticles = JSON.parse(JSON.stringify(articles));
         }
 
-        function update1memory() {
+        function updateMemory() {
             localStorage.setItem('articles', JSON.stringify(articles));
         }
 
@@ -877,14 +877,14 @@
             closeChangePasswordPanel();
         }
 
-        /* ------- Function to restore 1memory ------- */
-        function restore1memory() {
+        /* ------- Function to restore memory ------- */
+        function restoreMemory() {
             if (confirm('确定要恢复到之前的状态吗？')) {
-                articles = JSON.parse(JSON.stringify(1memoryArticles));
+                articles = JSON.parse(JSON.stringify(memoryArticles));
                 localStorage.setItem('articles', JSON.stringify(articles));
                 renderArticleList();
                 renderArticleManagementList();
-                alert('已成功恢复到之前！');
+                alert('已成功恢复到之前的状态！');
             }
         }
     </script>
